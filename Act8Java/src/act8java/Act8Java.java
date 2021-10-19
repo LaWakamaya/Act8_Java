@@ -18,26 +18,20 @@ public class Act8Java {
     /**
      * @param args the command line arguments
      */
+    static int opcion = 0;
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
         
-        Deck deck = new Deck();
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        
+        Deck deck = new Deck();             
         boolean salir = false;
-        int opcion = 0;
+        
         System.out.println("----------------Baraja de Poker----------------");
         while(!salir){
             if(deck.cardList.size() > 0)
             {
-            System.out.println("Elija una opcion");
-            System.out.println("1. Shuffle - Mezckar el deck");
-            System.out.println("2. Head - Sacar la primera carta");
-            System.out.println("3. Pick - Sacar una carta al azar");
-            System.out.println("4. Hand - Sacar 5 cartas");
-            System.out.println("0. Salir");
-            opcion = Integer.parseInt(br.readLine());
-            
+            showMenu();            
             
             switch(opcion){
                 case 1:
@@ -89,6 +83,16 @@ public class Act8Java {
             }
         }
         
+    }
+    
+    static void showMenu() throws IOException{
+        System.out.println("Elija una opcion");
+            System.out.println("1. Shuffle - Mezckar el deck");
+            System.out.println("2. Head - Sacar la primera carta");
+            System.out.println("3. Pick - Sacar una carta al azar");
+            System.out.println("4. Hand - Sacar 5 cartas");
+            System.out.println("0. Salir");
+            opcion = Integer.parseInt(br.readLine());
     }
     
 }
