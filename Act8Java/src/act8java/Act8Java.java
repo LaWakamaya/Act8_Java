@@ -53,15 +53,15 @@ public class Act8Java {
                 }
                 
                 case 4:
-                {
-                    if(deck.cardList.size() > 4){
+                {    
+                    try{
                         deck.Hand();
                         break;
-                    }else{
-                        System.out.println("Quedan menos de 5 cartas en el deck");
+                    }
+                    catch (Exception e){
+                        System.out.println("No quedaban cartas suficientes en el mazo");
                         break;
                     }
-                    
                 }
                 
                 case 0:
@@ -92,7 +92,13 @@ public class Act8Java {
             System.out.println("3. Pick - Sacar una carta al azar");
             System.out.println("4. Hand - Sacar 5 cartas");
             System.out.println("0. Salir");
-            opcion = Integer.parseInt(br.readLine());
+            try{
+                opcion = Integer.parseInt(br.readLine());
+            }
+            catch (Exception e){
+                System.out.println("Opcion no valida ingresada");
+                opcion = -1;
+            }
     }
     
 }
